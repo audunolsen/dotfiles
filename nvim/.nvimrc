@@ -5,7 +5,11 @@
 " Turn off line wrapping
 set nowrap
 
-let g:surround_no_mappings=1
+" Turn off auto-insert comment on new line
+augroup Format-Options
+    autocmd!
+    autocmd BufEnter * setlocal formatoptions-=cro
+augroup END
 
 " ===========
 " S P L I T S
@@ -275,6 +279,7 @@ let g:NERDTreeDirArrowExpandable = "" "
 let g:NERDTreeDirArrowCollapsible = "" "
 let g:NERDTreeStatusline = '—'
 let g:NERDTreeMinimalUI = 1
+let g:NERDTreeShowHidden = 1
 
 " autocmd BufEnter * :NERDTreeFind 
 "function! SyncTree()
