@@ -1,0 +1,85 @@
+/* #window */
+/* CSS for the window goes here */
+
+.hyper_mainRounded {
+    border-radius: 0px !important;
+}
+
+.tab_tab {
+    color: white !important;
+    border: none !important;
+}
+
+.tab_active {
+    font-weight: 600;
+}
+
+.tab_active .tab_text span span {
+   text-decoration: underline; 
+}
+
+.header_header {
+    width: 100vw;
+    height: 34px;
+    display: flex;
+    /*justify-content: center;*/
+    align-items: center;
+}
+
+.tabs_list {
+}
+
+.tabs_nav {
+    height: auto;
+    width: 100vw;
+    line-height: normal;
+}
+/*
+.tabs_nav.jsx-1678955646 {
+    line-height: auto !important;
+}
+*/
+
+.tab_textInner, .tabs_title {
+    font-variant: small-caps;
+    text-transform: lowercase;
+}
+
+span.tab_text {
+    height: 15px;
+    line-height: 15px;
+}
+
+.tabs_list li {
+    border-right: 1px solid rgba(255,255,255) !important;
+}
+
+.header_header {
+    /* border-bottom: 1px solid white;*/
+}
+
+
+
+/* =============
+ * pane-dividors
+ * ============= */
+
+/* horizontal */
+.splitpane_divider_horizontal {
+    margin: 0 auto;
+    height: 13px;
+    background-color: rgba(255,255,255,.2) !important;
+    border-top: 0px solid rgba(255, 255, 255, 0);
+    border-bottom: 12px solid rgba(255, 255, 255, 0);
+}
+
+/* vertical */
+.splitpane_divider_vertical {
+    background-color: rgba(255,255,255,.2) !important;
+    width: 12px;
+    border-left: 6px solid rgba(255, 255, 255, 0);
+}
+
+
+/* #terminal */
+/* CSS for the terminal goes here */
