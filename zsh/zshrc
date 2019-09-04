@@ -1,6 +1,6 @@
 # DOTFILES SYMLINK [ HIDE ]
 
-# test ^
+export TERM=xterm-256color-italic
 
 ############################
 #                          #
