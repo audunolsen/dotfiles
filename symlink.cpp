@@ -43,8 +43,7 @@ int main(int argc, char *argv[]) {
         if (argBegin > 0 && argEnd > 0) argBegin += identifier.length();
         else break;
 
-        string argStr = line.substr(argBegin, argEnd),
-               args[MAX_ARGS];
+        string argStr = line.substr(argBegin, argEnd), args[MAX_ARGS];
 
         stringstream ssin(argStr);
 
