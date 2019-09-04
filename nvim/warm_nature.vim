@@ -6,14 +6,10 @@ if exists("syntax_on")
   syntax reset
 endif
 
-" Allow italics
-" set t_ZH=^[[3m
-" set t_ZR=^[[23m
-
 " Function for setting fg, bg and optional gui values ——————————————————————————
 
 " Example call: GuiFor("Normal", "#000000", "#afafaf")
-function! g:GuiFor(group, ...)
+function! g:Style(group, ...)
   let histring = 'hi ' . a:group . ' '
 
   if strlen(a:1)
@@ -33,14 +29,15 @@ endfunction
 
 " Color variables ——————————————————————————————————————————————————————————————
 
-let g:green = "#B7E847"
-let g:amber = "#FFC245"
-let g:red   = "#FA6E6A"
-let g:blue  = "#96C9FF"
-let g:pink  = "#E851C0"
-let g:gray  = "#939DB5"
-let g:white = "#FFFFFF"
-let g:black = "#000000"
+let g:green  = "#B7E847"
+let g:amber  = "#FFC245"
+let g:red    = "#FA6E6A"
+let g:blue   = "#96C9FF"
+let g:pink   = "#FF66AA"
+let g:purple = "#A06DF5"
+let g:gray   = "#939DB5"
+let g:white  = "#FFFFFF"
+let g:black  = "#000000"
 
 let grayHack = "#929bb5"
 
@@ -48,67 +45,113 @@ let grayHack = "#929bb5"
 
 " ~CURSORLINE~
 " call GuiFor("CursorLine", "NONE", red, "bold") FIX: APPLY TO GOYO ONLY
-call GuiFor("CursorLine", white, black, "bold")
+call Style("CursorLine", white, black, "bold")
 
 " ~LINELENGTH~
-call GuiFor("OverLength", "NONE", red, "underline")
+call Style("OverLength", "NONE", red, "underline")
 match OverLength /\%>80v.\+/
 
 " ~GUTTER~
-call GuiFor("LineNr", "NONE", gray)
-call GuiFor("CursorLineNr", "NONE", white, "bold")
+call Style("LineNr", "NONE", gray)
+call Style("CursorLineNr", "NONE", white, "bold")
 
 " ~VSPLITS~
 hi VertSplit cterm=NONE gui=NONE
 hi StatusLine cterm=NONE gui=NONE
 hi StatusLineNC cterm=NONE gui=NONE
-call GuiFor("VertSplit", "NONE", gray)
+call Style("VertSplit", "NONE", gray)
 
 " ~S-LINE~
-call GuiFor("leftPad", "NONE", gray)
-call GuiFor("pwd", "NONE", white, "bold")
-call GuiFor("file", "NONE", amber, "bold")
-call GuiFor("separator", "NONE", gray)
-call GuiFor("linenum", "NONE", gray, "bold")
-call GuiFor("colnum", "NONE", gray, "bold")
-call GuiFor("line", "NONE", gray)
-call GuiFor("statuslinenc", "NONE", gray)
-call GuiFor("statusline", "NONE", grayHack)
+call Style("leftPad", "NONE", gray)
+call Style("pwd", "NONE", white, "bold")
+call Style("file", "NONE", amber, "bold")
+call Style("saveState", "NONE", blue)
+call Style("separator", "NONE", gray)
+call Style("linenum", "NONE", gray, "bold")
+call Style("colnum", "NONE", gray, "bold")
+call Style("line", "NONE", gray)
+call Style("statuslinenc", "NONE", gray)
+call Style("statusline", "NONE", grayHack)
 
 " ~NERDTREE~
-call GuiFor("NERDTreeDir", "NONE", white, "bold")
-call GuiFor("NERDTreeOpenable", "NONE", blue)
-call GuiFor("NERDTreeClosable", "NONE", blue)
-call GuiFor("NERDTreeDirSlash", "NONE", blue, "bold")
-call GuiFor("NERDTreeCWD", "NONE", amber, "bold")
-call GuiFor("NERDTreeUp", "NONE", white, "bold")
+call Style("NERDTreeDir", "NONE", white, "bold")
+call Style("NERDTreeOpenable", "NONE", blue)
+call Style("NERDTreeClosable", "NONE", blue)
+call Style("NERDTreeDirSlash", "NONE", blue, "bold")
+call Style("NERDTreeCWD", "NONE", amber, "bold")
+call Style("NERDTreeUp", "NONE", white, "bold")
 
 " ~BUFFER~
-call GuiFor("Normal", "NONE", "#FFFFFF")
-call GuiFor("Comment", "NONE", gray, "italic")
-call GuiFor("String", "NONE", green, "italic")
-call GuiFor("MatchParen", white, black)
+" call Style("String", "NONE", green, "italic")
+call Style("MatchParen", black, white, "bold")
 
-" highlight Comment cterm=italic
 
-" ~JAVASCRIPT~
-call GuiFor("jsFuncCall", "NONE", blue)
-call GuiFor("jsReturn", "NONE", pink, "bold")
-call GuiFor("jsGlobalObjects", "NONE", amber, "bold")
-call GuiFor("jsFuncName", "NONE", blue)
-call GuiFor("jsFunction", "NONE", pink, "bold")
-call GuiFor("jsAsyncKeyword", "NONE", amber, "bold")
-call GuiFor("jsArrowFunction", "NONE", pink, "bold")
-call GuiFor("jsForAwait", "NONE", amber, "bold")
-call GuiFor("jsStorageClass", "NONE", red, "bold")
-call GuiFor("jsTemplateBraces", "NONE", red, "bold")
-call GuiFor("jsNumber", "NONE", amber)
-call GuiFor("jsGlobalNodeObjects", "NONE", red)
-call GuiFor("jsSpecial", "NONE", blue)
+" ~THE MOST GENEREIC SYNTAX GROUPS~ ············································
 
-call GuiFor("jsOperator", "NONE", blue, "bold")
-call GuiFor("jsOperatorKeyword", "NONE", blue, "bold")
-call GuiFor("jsTaggedTemplate", "NONE", blue, "bold")
-call GuiFor("jsObjectColon", "NONE", blue, "bold")
-call GuiFor("jsDot", "NONE", blue, "bold")
-call GuiFor("jsSpreadOperator", "NONE", blue, "bold")
+call Style("Comment", "NONE", gray, "italic")
+call Style("Normal", "NONE", white)
+call Style("String", "NONE", green)
+call Style("Boolean", "NONE", purple, "italic")
+call Style("Constant", "NONE", amber)
+call Style("Character", "NONE", green)
+call Style("Number", "NONE", pink, "bold")
+call Style("Statement", "NONE", red, "bold")
+call Style("Identifier", "NONE", blue, "NONE")
+call Style("Special", "NONE", blue, "NONE")
+
+call Style("Float", "NONE", pink, "bold")
+
+call Style("Define", "NONE", amber)
+call Style("Include", "NONE", pink, "italic")
+call Style("Macro", "NONE", amber)
+call Style("PreCondit", "NONE", amber)
+
+call Style("Conditional", "NONE", red, "bold")
+call Style("Exception", "NONE", amber)
+call Style("HelpCommand", "NONE", amber)
+call Style("HelpExample", "NONE", amber)
+call Style("Keyword", "NONE", amber, "bold")
+call Style("Label", "NONE", amber, "italic")
+call Style("Operator", "NONE", blue, "bold")
+call Style("Repeat", "NONE", red, "bold")
+
+call Style("StorageClass", "NONE", red, "bold")
+call Style("Structure", "NONE", amber, "italic")
+call Style("Typedef", "NONE", amber)
+call Style("Type", "NONE", purple, "italic")
+call Style("PreProc", "NONE", red, "none")
+
+call Style("Debug", "NONE", amber)
+call Style("Delimiter", "NONE", white, "bold")
+call Style("SpecialChar", "NONE", blue)
+call Style("SpecialComment", "NONE", amber)
+call Style("Tag", "NONE", amber)
+
+
+
+" ~HTML~ ·······································································
+
+" call Style("htmlH", "NONE", "amber", "none")
+" call Style("markdownH2", "NONE", "amber", "none")
+
+" ~JAVASCRIPT~ ·································································
+" call Style("jsFuncCall", "NONE", blue)
+" call Style("jsReturn", "NONE", pink, "bold")
+" call Style("jsGlobalObjects", "NONE", amber, "bold")
+" call Style("jsFuncName", "NONE", blue)
+" call Style("jsFunction", "NONE", pink, "bold")
+" call Style("jsAsyncKeyword", "NONE", amber, "bold")
+" call Style("jsArrowFunction", "NONE", pink, "bold")
+" call Style("jsForAwait", "NONE", amber, "bold")
+" call Style("jsStorageClass", "NONE", red, "bold")
+" call Style("jsTemplateBraces", "NONE", red, "bold")
+" call Style("jsNumber", "NONE", amber)
+" call Style("jsGlobalNodeObjects", "NONE", red)
+" call Style("jsSpecial", "NONE", blue)
+" 
+" call Style("jsOperator", "NONE", blue, "bold")
+" call Style("jsOperatorKeyword", "NONE", blue, "bold")
+" call Style("jsTaggedTemplate", "NONE", blue, "bold")
+" call Style("jsObjectColon", "NONE", blue, "bold")
+" call Style("jsDot", "NONE", blue, "bold")
+" call Style("jsSpreadOperator", "NONE", blue, "bold")

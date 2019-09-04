@@ -45,6 +45,7 @@ Plug 'Quramy/vim-js-pretty-template'
 
 Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle', 'NERDTreeFind'] }
 " Plug 'scrooloose/nerdtree'
+Plug 'ap/vim-css-color'
 
 Plug 'Shougo/vimfiler.vim'
 
@@ -53,6 +54,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/goyo.vim'
 Plug 'kchmck/vim-coffee-script'
 Plug 'tpope/vim-surround'
+Plug 'gerw/vim-HiLinkTrace'
 " Plug 'Xuyuanp/nerdtree-git-plugin'
 " Plug 'robinfehr/nerdtree-git-plugin'
 " Plug 'tsony-tsonev/nerdtree-git-plugin'
@@ -60,7 +62,32 @@ Plug 'tpope/vim-surround'
 Plug 'TaDaa/vimade'
 " Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
+Plug 'bfrg/vim-cpp-modern'
+Plug 'Yggdroot/indentLine'
+
+Plug 'elzr/vim-json'
+Plug 'Quramy/vim-js-pretty-template'
+Plug 'tpope/vim-surround'
+
+
+
+
+let g:vim_json_syntax_conceal = 0
+" todo: https://github.com/elzr/vim-json/issues/23
+
+Plug 'digitaltoad/vim-pug'
+
 call plug#end()
+
+" ===========
+" I N D E N T
+" ===========
+
+let g:indentLine_color_gui = '#949596'
+
+" let g:indentLine_char = '¦'
+let g:indentLine_char = '┊'
+" let g:indentLine_char_list = ['₁', '₂', '₃', '₄']
 
 " =========
 " F U Z Z Y
@@ -140,9 +167,12 @@ let mapleader = ","
 " Clear search highlightning
 nnoremap <Space><Space> :noh<cr>
 
+" Yank line without linebreaks. Bug: destroys cursor pos
+nnoremap <leader>y ^y$
+
 " delete line & clear line
-nnoremap -d dd
-nnoremap -c ddO
+" nnoremap -d dd
+" nnoremap -c ddO
 
 " Nerdtree toggle. Opens NERDTree if nerdtree buffer doesn't exist, focuses
 " nerdtree if already open, but not focused. Closes if already focused.
@@ -166,7 +196,7 @@ function! NerdToggleOrFocus()
             NERDTreeToggle
         endif
 
-        call GuiFor("CursorLine", g:white, g:black)
+        call Style("CursorLine", g:white, g:black)
         " Open - call function highliting curosorline in an 'active state'
 
     endif
@@ -226,13 +256,14 @@ function! SetStatusLineFile()
 endfunction
 
 function! SetStatusLineSaveState()
-    return l
+    return &mod ? " ●" : ""
 endfunction
 
 set statusline=%#leftPad#————\ 
 
 set statusline+=%#pwd#%{SetStatusLinePath()}
 set statusline+=%#file#%{SetStatusLineFile()}
+set statusline+=%#saveState#%{SetStatusLineSaveState()}
 
 set statusline+=%#separator# \|\ 
 set statusline+=%#linenum#%l
@@ -275,9 +306,9 @@ set termguicolors
 colorscheme warm_nature
 
 " Enable Italics
-set t_ZH=^[[3m
-set t_ZR=^[[23m
-highlight Comment gui=bold
+" set t_ZH=^[[3m
+" set t_ZR=^[[23m
+" highlight Comment gui=bold
 
 " ===============
 " N E R D T R E E
@@ -417,7 +448,7 @@ function! NerdCursorBlur()
 
     if buf != "NERD_tree_"
 
-        call GuiFor("CursorLine", "NONE", g:red, "bold")
+        call Style("CursorLine", "NONE", g:red, "bold")
 
         if exists("g:NERDTree") && g:NERDTree.IsOpen()
 
@@ -442,3 +473,26 @@ function! FileInCwd()
     return str2nr(system(cmd))
 
 endfunc
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+call jspretmpl#register_tag('pug', 'pug')
+autocmd FileType coffee JsPreTmpl
+autocmd FileType javascript JsPreTmpl
+
+
+
+
