@@ -17,4 +17,6 @@ To symlink files, call the `./sync.sh` script.
 - [X] Add .hyper.{css|js}
 - [X] Add proper file structuring for this repo. (git/ zsh/ nvim/ etc..)
 - [ ] Split up runcom files for zsh and nvim
+- [ ] Add dummy files for my most used languages for syntax evaluation
 - [ ] A lot more…
+
