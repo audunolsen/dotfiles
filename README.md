@@ -1,7 +1,7 @@
-## symbolic links
+## Symbolic Links
 
 To symlink files from this directory to other directories, the "symlink"
-executable will look for a lina which includes `DOTFILES SYMLINK` in this
+executable will look for a line which includes `DOTFILES SYMLINK` in this
 project's files. Said line can include two optional arguments to alter how
 these files are symlinked; `DOTFILES SYMLINK [ path/to/dir/ HIDE ]`. The first
 arg can be a path which is the directory the file should be linked to, which
@@ -10,7 +10,7 @@ will make the link a hidden file (file prefixed with a dot)"
 
 To symlink files, call the `./sync.sh` script.
 
-## TODO:
+## TODO
 - [x] More efficient shell script symlinking files
 - [X] Better Guard agains files/directories which should not be symlinked
 - [X] Add .gitconfig
