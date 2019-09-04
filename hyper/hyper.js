@@ -169,6 +169,10 @@ module.exports = {
             mapIcons: {
                 vim: ['nvim']
             }
+        },
+
+        paneNavigation: {
+            showIndicators: false
         }
 
     },
@@ -179,7 +183,9 @@ module.exports = {
         'hyper-vibrance',
         'hyper-stylesheet',
         'hyper-tab-icons',
-        'hyperclean'
+        'hyperclean',
+        "hyper-pane",
+        "hypercwd"
     ],
 
     // in development, you can create a directory under
