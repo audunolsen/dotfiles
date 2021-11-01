@@ -20,6 +20,7 @@
 
 [credential]
     helper = osxkeychain
+
 [user]
 	name = Audun Meek Olsen
 	email = audunmeekolsen@gmail.com

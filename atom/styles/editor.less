@@ -1,0 +1,52 @@
+.item-views atom-text-editor {
+
+  // Selection color
+  .selection .region { background-color: rgba(0, 0, 0, 0.1) !important; border-radius: 0px !important}
+
+  // Cursor line transparent bg
+  .line.cursor-line, :host .line.cursor-line { background-color: rgba(0, 0, 0, 0) !important; }
+
+  // Curos line color
+  .cursor, :host .cursor {
+    height: 1.19em !important;
+    margin-top: 0.2em;
+    border-left: 3px solid @highlight !important;
+  }
+
+  // Remove scrollbars
+  .vertical-scrollbar { display: none; }
+  .horizontal-scrollbar { display: none; }
+
+  // Add a margin above first line-number
+  .lines { margin-top: 20px; }
+  // Add a margin above first gutter-number
+  .line-numbers { margin-top: 20px; }
+
+  // Make attributes italic
+  span.syntax--entity.syntax--other.syntax--attribute-name { font-style: italic; }
+
+  // .syntax--comment {
+	//   color: darken(#CCD7DA, 10%);
+  // }
+
+  .bracket-matcher .region {
+    border-radius: 2px;
+    background-color: fade(@highlight, 35%);
+  }
+}
+
+.editor.mini { font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif; }
+
+// Opacity of panes
+atom-workspace-axis.vertical atom-pane > div {
+	background-color: transparent !important;
+	atom-text-editor .scroll-view {
+		opacity: .5;
+		transition: opacity .3s ease;
+	}
+}
+
+// Fully opaque active pane
+atom-workspace-axis.vertical atom-pane.active atom-text-editor .scroll-view, atom-workspace-axis.vertical atom-pane:only-child atom-text-editor .scroll-view {
+	opacity: 1;
+}

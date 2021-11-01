@@ -1,0 +1,182 @@
+/* DOTFILES SYMLINK [ .atom/ ] */
+
+/*
+ * Your Stylesheet
+ *
+ * This stylesheet is loaded when Atom starts up and is reloaded automatically
+ * when it is changed and saved.
+ *
+ * Add your own CSS orss Less to fully customize Atom.
+ * If you are unfamiliar with Less, you can read more about it here:
+ * http://lesscss.org
+ */
+
+@import "vars";
+@import "gutter";
+@import "tree";
+@import "status";
+@import "editor";
+
+.atom-dock-toggle-button { display: none !important; }
+atom-text-editor { font-family: "Operator Mono"; }
+
+atom-workspace-axis.vertical {
+  background: @workspace-bg;
+}
+
+atom-text-editor.editor.mini .lines { margin-top: 0px; }
+
+// // style the background and foreground colors on the atom-text-editor-element itself fjdsk hjdfks fh hjdfks hjfdks  hjdks hjdksfds hfdjs
+// atom-text-editor {
+//   // color: white;
+//   // background-color: hsl(180, 24%, 12%);
+// }
+//
+// // style UI elements inside atom-text-editor
+// atom-text-editor .cursor {
+//   // border-color: red;
+// }
+//
+// /* GUTTER */
+//
+// // atom-text-editor .gutter {
+// //   font-family: Arial, Helvetica, sans-serif;
+// //
+// //   .line-number { transform: scale(.8); }
+// //
+// //   .line-number.cursor-line.cursor-line-no-selection {
+// //     font-weight: bold;
+// //     // color: @highlight-dark !important;
+// // 	 background-color: transparent !important;
+// //   }
+// //
+// //   .line-number.cursor-line {
+// //     background-color: rgba(0,0,0,.0) !important;
+// //     // color: @workspace-cp !important;
+// // 	 font-weight: bold;
+// //   }
+// //
+// //   .line-number.git-line-added {
+// //     border-left: 2px dashed transparent !important;
+// //     border-left: none;
+// // 	 // color: @git-add;
+// // 	 font-weight: bold;
+// //   }
+// //
+// //   .line-number.git-line-modified {
+// //     border-left: 2px dashed transparent !important;
+// // 	 border-left: none;
+// // 	 // color: @git-mod;
+// // 	 font-weight: bold;
+// //   }
+// //
+// //   .line-number.bookmarked {
+// //     // color: @favorite !important;
+// //     font-weight: bold;
+// // 	 &::before {
+// // 		//  font-family: 'FontAwesome';
+// // 		//  content: "\f005";
+// // 		// //  position: relative;
+// // 		// //  top: -2px;
+// // 		// //  left: 2px;
+// // 		//  color: @favorite;
+// // 		//  transform: scale(.8);
+// // 		//  position: absolute !important;
+// // 		//  transform: translateX(-15px);
+// //
+// // 	 }
+// //     .icon-right {
+// //       opacity: 1;
+// //       &::before {
+// //         font-family: 'FontAwesome';
+// //         content: "\f005";
+// //         position: relative;
+// //         top: -2px;
+// //         left: 2px;
+// //         // color: @favorite;
+// //         transform: scale(1); }
+// //     }
+// //   }
+// //
+// //   .line-number.folded {
+// //     // color: @highlight-dark !important;
+// //     font-weight: bold;
+// //     .icon-right {
+// // 	 	opacity: 1;
+// //       &::before {
+// //         font-family: 'FontAwesome';
+// //         content: '\f0da';
+// //         // color: @highlight-dark !important;
+// //         position: relative;
+// //         top: -1px;
+// //         left: 2px;
+// //         transform: scale(1.7);
+// //       }
+// //     }
+// //   }
+// //
+// // }
+// //
+// // .gutter.line-numbers > div { overflow: visible !important; }
+// // .gutter-container > div { overflow: visible !important; }
+// //
+// // // Style fold markers
+// // .lines .fold-marker {
+// //   &::before {
+// // 	  opacity: .6;
+// //     font-family: 'FontAwesome';
+// //     content: '\f0d9';
+// //     // color: @highlight-dark;
+// //     position: relative;
+// //     top: 1px;
+// //     left: 7px;
+// //     transform: scale(1.7);
+// //   }
+// //   &::after { display: none; }
+// // }
+// //
+// // span.fold-marker { position: relative; left: -40px !important; }
+// //
+// // .gutter:hover .line-number.folded .icon-right::before {
+// //   position: relative;
+// //   font-family: 'FontAwesome' !important;
+// //   content: '\f0da' !important;
+// //   left: 2px !important;
+// // }
+// //
+// // .gutter-container {
+// // 	position: absolute !important;
+// // 	margin-left: 10px !important;
+// // 	padding-left: 0px;
+// // 	background-color: transparent !important;
+// // }
+// //
+// //
+// // atom-text-editor .gutter .line-number.git-line-removed:before {
+// // 	position: static;
+// // 	left: inherit;
+// // 	bottom: inherit;
+// // 	height: inherit;
+// // 	width: inherit;
+// // 	border: none;
+// // 	border-left-color: #EF5350;
+// // 	border-width: 0px;
+// // 	margin-top: 0px;
+// // 	pointer-events: none;
+// // }
+// //
+// // atom-text-editor .gutter .line-number.git-line-removed:after {
+// // 	position: absolute;
+// // 	margin-bottom: -2px;
+// // 	left: 0px;
+// // 	bottom: -6px;
+// // 	height: 0;
+// // 	width: 36px;
+// // 	content: ' ';
+// // 	border: solid transparent;
+// // 	border-right-color: #EF5350;
+// // 	border-left-color: #EF5350;
+// // 	border-width: 6px;
+// // 	margin-top: -6px;
+// // 	pointer-events: none;
+// // }

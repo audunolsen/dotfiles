@@ -2,7 +2,6 @@
 
 setopt extended_glob
 
-
 ignoreDirs=(.git)
 ignoreFiles=(.DS_Store *.cpp *.md symlink)
 ignoreItems=(${ignoreDirs[@]} ${ignoreFiles[@]});
@@ -34,9 +33,10 @@ for f in **/*$~ignore(.N); do
 
     if [[ -n $lnPath ]] && [ "${lnPath: -1}" != "/" ]; then path="$lnPath/"; fi
 
-    from=$HOME/dotfiles/$f
+    from=$PWD/$f
     to=$HOME/$lnPath$hide$f:t
 
+    mkdir -p $HOME/$lnPath > /dev/null 2>&1
     ln -sf $from $to
 
     if [ -L $to ]; then
@@ -47,16 +47,16 @@ for f in **/*$~ignore(.N); do
 done
 
 longestStrInArr() { # Call "longestStrInArr <result-var> <array>"
-  local m=0
-  local firstArg=$1
+    local m=0
+    local firstArg=$1
 
-  shift
-  local arr=("$@")
+    shift
+    local arr=("$@")
 
-  for str in "${arr[@]}"; do
-    if (( ${#str} > $m )); then m=${#str}; fi
-  done
-  eval "$firstArg='$m'"
+    for str in "${arr[@]}"; do
+        if (( ${#str} > $m )); then m=${#str}; fi
+    done
+    eval "$firstArg='$m'"
 }
 
 padding=0; longestStrInArr padding "${lnFrom[@]}"

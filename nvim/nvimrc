@@ -300,15 +300,11 @@ set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 " ===========
 
 " support for true-color
+let &runtimepath .= ',~/.vim/colors/'
 set termguicolors
 
 " load custome local theme
 colorscheme warm_nature
-
-" Enable Italics
-" set t_ZH=^[[3m
-" set t_ZR=^[[23m
-" highlight Comment gui=bold
 
 " ===============
 " N E R D T R E E

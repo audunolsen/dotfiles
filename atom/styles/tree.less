@@ -1,0 +1,166 @@
+// Only allow app drag on left edge of window
+atom-panel-container.left atom-pane-container::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 20px;
+  -webkit-app-region: drag;
+}
+
+// Change icon and style of root folder icon
+.project-root-header > span {
+  color: white;
+
+  &::before {
+    font-family: 'FontAwesome';
+    content: "\f07c" !important;
+  }
+}
+
+// Change icon and style of root folder expanded icon
+.project-root.collapsed > .project-root-header > span::before {
+  font-family: 'FontAwesome';
+  content: "\f07b" !important;
+}
+
+// line height of the tree view
+.list-tree li.list-nested-item .list-item { line-height: 2.6em; }
+
+.tree-view {
+  padding: 35px;
+  padding-top: 20px;
+
+  *,
+  *::before,
+  *::after {
+    background: none !important;
+  }
+
+  * {
+    color: rgba(255,255,255,.9);
+  }
+
+  // Line up root's immidiate children
+  .entry { padding-left: 0 !important; }
+  // Left spacing on nested items
+  .project-root > .entries .entries { padding-left: 26px; }
+
+  .entry.status-ignored {
+    span, span::before {
+      color: rgba(255,255,255,.4) !important;
+    }
+  }
+
+  .status-modified,
+  .status-added {
+    &.file,
+    &.directory.collapsed {
+      display: flex;
+
+      &::before {
+        align-self: center;
+        position: absolute;
+        margin-left: -22px;
+        font-variant: small-caps;
+        font-weight: bold;
+        left: unset;
+        right: unset;
+        height: auto;
+      }
+    }
+  }
+
+  .status-modified.file::before,
+  .status-modified.directory.collapsed::before {
+    content: "m";
+    color: @mod;
+  }
+
+
+  .status-added.file::before,
+  .status-added.directory.collapsed::before {
+    content: "a";
+    color: @add;
+  }
+
+  .file.selected {
+    animation: selected 0.2s;
+
+    // &::after {
+    //   margin-left: 10px;
+    //   font-family: 'FontAwesome';
+    //   content: "\f060";
+    //   color: @highlight !important;
+    //   // content: " <-";
+    // }
+
+    span {
+
+      &::before {
+        font-family: 'FontAwesome';
+        content: "\f061";
+      }
+
+      &, &::before { color: @highlight !important; }
+      font-weight: bold;
+    }
+  }
+
+  .list-item:not(.status-modified):not(.status-added) {
+    &::before { content: none !important; }
+  }
+
+  .list-tree .list-item {
+    margin: 0 !important;
+  }
+}
+
+.project-root-header {
+
+  // Style the text of project header
+  span.name.icon {
+    font-weight: bold;
+  }
+}
+//
+// .project-root-header {
+// 	//line-height: -40px !important;
+// }
+//
+
+// Icon <-> Text margin
+.list-tree .icon::before {
+  margin-right: 10px !important;
+}
+
+// Folder icon
+.icon-file-directory::before {
+  font-family: 'FontAwesome';
+  content: "\f115";
+}
+
+// Folder collapsed icon
+li.collapsed span.icon-file-directory::before {
+  font-family: 'FontAwesome';
+  content: "\f114";
+}
+
+// Keyframe animation for slected files
+@-webkit-keyframes selected {
+  0% {
+    opacity: 0;
+    transform-origin: center;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+// ------- Kerning of spesific icons
+
+// Cpp
+// .cpp-icon::before { position: relative; top: 3px; }

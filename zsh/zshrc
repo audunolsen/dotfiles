@@ -1,6 +1,8 @@
 # DOTFILES SYMLINK [ HIDE ]
 
 export TERM=xterm-256color-italic
+autoload -Uz compinit && compinit
+alias zshrc="source ~/.zshrc && echo 'zshrc successfully reloaded'"
 
 ############################
 #                          #
@@ -95,15 +97,15 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 #                          #
 ############################
 
-export NVM_DIR="$HOME/.nvm"
+# export NVM_DIR="$HOME/.nvm"
 # This loads nvm
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 # This loads nvm bash_completion
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 # added by travis gem
-[ -f /Users/audun.olsen/.travis/travis.sh ] \
-    && source /Users/audun.olsen/.travis/travis.sh
-[ -f ~/.fzf.zsh ] \
-    && source ~/.fzf.zsh
+# [ -f /Users/audun.olsen/.travis/travis.sh ] \
+#    && source /Users/audun.olsen/.travis/travis.sh
+# [ -f ~/.fzf.zsh ] \
+#    && source ~/.fzf.zsh
 

@@ -1,0 +1,56 @@
+"*":
+  core:
+    automaticallyUpdate: false
+    disabledPackages: [
+      "about"
+      "archive-view"
+      "autocomplete-atom-api"
+      "autocomplete-css"
+      "autocomplete-html"
+      "autocomplete-plus"
+      "autocomplete-snippets"
+      "autoflow"
+      "background-tips"
+      "exception-reporting"
+      "github"
+      "language-clojure"
+      "language-csharp"
+      "language-go"
+      "language-hyperlink"
+      "language-java"
+      "language-mustache"
+      "language-objective-c"
+      "language-perl"
+      "language-php"
+      "language-ruby-on-rails"
+      "language-rust-bundled"
+      "language-toml"
+      "metrics"
+      "package-generator"
+      "snippets"
+      "spell-check"
+      "tabs"
+    ]
+    telemetryConsent: "no"
+    themes: [
+      "one-light-ui"
+      "one-light-syntax"
+    ]
+    titleBar: "hidden"
+  editor:
+    fontSize: 13
+    scrollPastEnd: true
+  "exception-reporting":
+    userId: "e42fc577-e46b-4111-a995-1e37189a929c"
+  "markdown-preview":
+    breakOnSingleNewline: true
+    openPreviewInSplitPane: false
+    useGitHubStyle: true
+  "one-vibrancy":
+    effect: "ultra-dark"
+  "status-bar":
+    fullWidth: false
+  "tree-view":
+    hideIgnoredNames: true
+  welcome:
+    showOnStartup: false

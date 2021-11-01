@@ -1,4 +1,4 @@
-// -- hyper-stylesheet-hash:b058cc006fc4d54c6e9a2cb589147758 --
+// -- hyper-stylesheet-hash:498f417d37dfcfc30830336a5ac29f43 --
 // Future versions of Hyper may add additional config options,
 // which will not automatically be merged into this file.
 // See https://hyper.is#cfg for all currently supported options.
@@ -196,5 +196,8 @@ module.exports = {
     keymaps: {
         // Example
         // 'window:devtools': 'cmd+alt+o',
+
+        // Esc is broken on latest canary
+        "editor:break": "esc",
     },
 };
