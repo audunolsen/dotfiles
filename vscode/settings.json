@@ -1,0 +1,66 @@
+// DOTFILES SYMLINK [ Library/Application\ Support/Code/User/ ]
+
+{
+    // WINDOW
+    "window.title": "${activeEditorMedium}",
+    "window.titleBarStyle": "native",
+
+    // WORKBENCH
+    "workbench.activityBar.visible": true,
+    "workbench.colorTheme": "Default Light+",
+    
+    // EDITOR
+    "editor.padding.top": 10,
+    "editor.minimap.enabled": false,
+    "editor.guides.indentation": false,
+    "editor.scrollbar.horizontal": "hidden",
+    "editor.scrollbar.vertical": "hidden",
+    "editor.lineNumbers": "off",
+    "editor.glyphMargin": false,
+    "editor.folding": false,
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.rulers": [
+        {
+            "column": 80,
+            "color": "#ffc77d20"
+        },
+        {
+            "column": 100,
+            "color": "#ff8d0030"
+        }
+    ],
+    "editor.codeActionsOnSave": {
+        "source.fixAll.stylelint": true
+    },
+
+    // EXTENSIONS
+    "extensions.ignoreRecommendations": true,
+
+    // WORKBENCH
+    "workbench.editor.limit.enabled": true,
+    "workbench.editor.limit.value": 5,
+    "workbench.editor.limit.perEditorGroup": true,
+    "workbench.editor.labelFormat": "short",
+
+    // TYPESCRIPT
+    "typescript.updateImportsOnFileMove.enabled": "always",
+
+    // JAVASCRIPT
+    "javascript.updateImportsOnFileMove.enabled": "always",
+
+    // PRETTIER
+    "prettier.requireConfig": true,
+
+    // STYLELINT
+    "stylelint.enable": true,
+    "stylelint.validate": ["scss", "css"],
+
+    // PLUGIN:CUSTOMIZE-UI
+    "customizeUI.titleBar": "frameless",
+
+    // MISC
+    "breadcrumbs.enabled": false
+}
