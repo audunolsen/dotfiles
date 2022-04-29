@@ -4,7 +4,7 @@ setopt extended_glob
 
 ignoreDirs=(.git)
 ignoreFiles=(.DS_Store *.cpp *.md symlink)
-ignoreItems=(${ignoreDirs[@]} ${ignoreFiles[@]});
+ignoreItems=(${ignoreDirs[@]} ${ignoreFiles[@]})
 
 for item in $ignoreItems; do
     if [[ -n "${ignoreDirs[(r)$item]}" ]]; then
@@ -16,34 +16,38 @@ done
 
 lnFrom=(); lnTo=()
 
-for f in **/*$~ignore(.N); do
+for file in **/*$~ignore(.N); do
+    opts=()
 
-    lnOpts=()
-    while read -r line; do lnOpts+=( "$line" ); done < <( ./symlink $f )
+    while read -r line; do opts+=( "$line" ); done < <( ./symlink $file )
 
-    if [ -z "$lnOpts" ]; then continue; fi
+    if [[ ${#opts[@]} -eq 0 ]]; then continue; fi
 
-    lnOpts=("${lnOpts[@]:1}")
+    hide=""; lnPath=""; outFile=""
 
-    hide=""; lnPath=""
-
-    for arg in $lnOpts; do
+    for arg in $opts; do
         if [ $arg = "HIDE" ]; then hide="." else lnPath=$arg; fi
     done
 
-    if [[ -n $lnPath ]] && [ "${lnPath: -1}" != "/" ]; then path="$lnPath/"; fi
+    outFile=$hide$file:t
 
-    from=$PWD/$f
-    to=$HOME/$lnPath$hide$f:t
-
-    mkdir -p $HOME/$lnPath > /dev/null 2>&1
-    ln -sf $from $to
-
-    if [ -L $to ]; then
-      lnFrom+=( dotfiles/$f ); lnTo+=( "~"/$lnPath$hide$f:t )
+    if [[ -n $lnPath ]] && [ "${lnPath: -1}" != "/" ]; then
+        tmp=$lnPath
+        lnPath=${tmp%/*}/
+        outFile=${tmp##*/}
     fi
 
+    from="$PWD/$file"
+    to="$HOME/$lnPath$outFile"
+    dir="$HOME/$lnPath"
 
+    mkdir -p "$dir" > /dev/null 2>&1
+    ln -sf "${from}" "${to}"
+    
+    if [ -L $to ]; then
+      lnFrom+=( dotfiles/$file )
+      lnTo+=( "~"/$lnPath$outFile )
+    fi
 done
 
 longestStrInArr() { # Call "longestStrInArr <result-var> <array>"
@@ -74,3 +78,5 @@ for i in {1..${#lnFrom[@]}}; do
 done
 
 printf "\n"
+
+# ZSH Modifiers: https://web.cs.elte.hu/local/texinfo/zsh/zsh_23.html
