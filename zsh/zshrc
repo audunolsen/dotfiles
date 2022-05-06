@@ -1,6 +1,6 @@
 # DOTFILES SYMLINK [ HIDE ]
 
-export TERM=xterm-256color-italic
+# export TERM=xterm-256color-italic
 autoload -Uz compinit && compinit
 alias zshrc="source ~/.zshrc && echo 'zshrc successfully reloaded'"
 
@@ -80,12 +80,12 @@ preexec() {
 PROMPT="%B%(?.%T%F{green} |%f.%F{red}%T |%f)%b "
 
 #############################
-#		            #
+#		                    #
 #           PLUGINS  	    #
-#        	            #
+#        	                #
 #############################
 
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/code/dotfiles/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 # https://github.com/zsh-users/zsh-autosuggestions
 
 # source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
