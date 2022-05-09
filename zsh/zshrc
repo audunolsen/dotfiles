@@ -6,12 +6,19 @@ source ~/code/dotfiles/zsh/rc/tab-titles
 
 # --- plugins/tooling ---
 # https://github.com/zsh-users/zsh-autosuggestions
-source ~/code/dotfiles/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/code/dotfiles/dependencies/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 # https://github.com/zsh-users/zsh-syntax-highlighting
 # source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+source ~/code/dotfiles/dependencies/zsh-you-should-use/you-should-use.plugin.zsh
+export YSU_MODE=ALL
+# https://github.com/MichaelAquilina/zsh-you-should-use#installation
+
 # https://github.com/asdf-vm/asdf/tree/release-v0.10.1
 source ~/code/dotfiles/dependencies/asdf/asdf.sh
+
+export PATH="/opt/homebrew/bin:$PATH"
 
 fpath=(~/code/dotfiles/dependencies/asdf/completions $fpath)
 autoload -Uz compinit && compinit

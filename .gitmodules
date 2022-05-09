@@ -1,7 +1,10 @@
 [submodule "zsh/plugins/zsh-autosuggestions"]
-	path = zsh/plugins/zsh-autosuggestions
+	path = dependencies/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions
 [submodule "dependencies/asdf"]
 	path = dependencies/asdf
 	url = https://github.com/asdf-vm/asdf.git
 	branch = release-v0.10.1
+[submodule "dependencies/zsh-you-should-use"]
+	path = dependencies/zsh-you-should-use
+	url = https://github.com/MichaelAquilina/zsh-you-should-use.git
