@@ -1,0 +1,27 @@
+#!/bin/zsh
+
+# enable vim mode on the command line
+# bindkey -v
+
+# no delay entering normal mode
+# 10ms for key sequences
+# KEYTIMEOUT=1
+
+# show vim status
+# function zle-line-init zle-keymap-select {
+#
+#	RPS1="${${KEYMAP/vicmd/%B-VI-%b}/(main|viins)/}"
+#	RPS2=sRPS1
+#	zle reset-prompt
+#
+#}
+
+#zle -N zle-line-init
+#zle -N zle-keymap-select
+
+# add missing vim hotkeys
+# http://zshwiki.org/home/zle/vi-mode
+
+#bindkey -a u undo
+#bindkey -a '^T' redo
+#bindkey -a '^?' backward-delete-char #backspace
